@@ -1,0 +1,44 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class='bg-gray pt-50'>
+  <view style="z-index: 1;" class="flex bg-white flex-between h-50 fs-34 bs-bottom wp-100 pst-fx l-0 t-0">
+    <view class='fc-orange'>首页</view>
+    <view>精华</view>
+    <view>问答</view>
+    <view>招聘</view>
+  </view>
+
+  <scroll-view 
+  style="height: 100vh;"
+  scroll-y 
+  bindscrolltoupper="upper" 
+  bindscrolltolower="lower" 
+  bindscroll="scroll"
+  >
+    <view class='bs-bottom mt-20 p-20 bg-white text-left' wx:key="id" wx:for="{{ pageListData }}">
+      <view data-id="{{ item.id }}" bindtap="fnTapJumpDetail" class='fs-30'>
+        <view class='vh-parent pr-40'>
+          <image class='w-45 h-45 vtal-t avatar mr-12' src="{{item.author.avatar_url}}"></image>
+          <view class='dspl-inbl mr-12'>
+            {{ item.author.loginname }}
+          </view>
+          <view wx:if="{{item.top === true}}" class='dspl-inbl pl-10 pr-10 pt-5 pb-5 bg-red color-white br-6 fs-25'>
+            置顶
+          </view>
+          <view wx:if="{{ item.good === true }}" class='dspl-inbl pl-10 pr-10 pt-5 pb-5 bg-red color-white br-6 fs-25'>
+            精华
+          </view>
+          <view class='v r-30'>
+            {{ item.dateDiff }}
+          </view>
+        </view>
+        <view class='mt-20'>
+          {{ item.title }}
+        </view>
+      </view>
+      <!-- <view class="fs-30 text-ellipsis-5">
+      <template class="" is="wxParse" data="{{wxParseData: item.parsetContent.nodes}}"/>
+    </view> -->
+
+    </view>
+  </scroll-view>
+</view>
