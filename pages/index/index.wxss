@@ -1,0 +1,13 @@
+@import "/wxParse/wxParse.wxss";
+
+.text-ellipsis-5 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.avatar{
+  border-radius: 50%;
+}

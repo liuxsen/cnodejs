@@ -1,0 +1,4 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="fs-30 p-20">
+    <template class="fs-40" is="wxParse" data="{{wxParseData: content.nodes}}"/>
+</view>
